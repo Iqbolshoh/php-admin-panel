@@ -16,26 +16,18 @@
 
     <!-- Navbar -->
     <?php include 'includes/navbar.php' ?>
+    <?php active('Tables', 1) ?>
 
-
-    <!-- Main Sidebar Container -->
+    <!-- Page path -->
     <?php
-    include 'includes/aside.php';
-    active('tables', 'datatable');
+    $arr = array(
+      ["title" => "Home", "url" => "/"],
+      ["title" => "DataTable", "url" => "#"],
+    );
+    pagePath('DataTable', $arr);
     ?>
 
-
     <div class="content-wrapper">
-
-      <!-- Content Header (Page header) -->
-      <?php
-      $arr = array(
-        ["title" => "Home", "url" => "/"],
-        ["title" => "DataTable", "url" => "#"],
-      );
-      pagePath('DataTable', $arr);
-      ?>
-
       <!-- Main content -->
       <section class="content">
         <div class="row">
@@ -46,10 +38,9 @@
               </div>
               <!-- /.card-header -->
               <?php
-              include 'config.php';
-              $query = new Query();
-
-              $data = $query->select('browsers');
+              // read JSON
+              $jsonData = file_get_contents('data.json');
+              $data = json_decode($jsonData, true);
 
               echo '<div class="card-body">';
               echo '<table id="example2" class="table table-bordered table-hover">';
@@ -64,7 +55,7 @@
               echo '</thead>';
               echo '<tbody>';
 
-              // Ma'lumotlarni chiqarish
+              // print data
               foreach ($data as $row) {
                 echo '<tr>';
                 echo '<td>' . $row['Rendering_engine'] . '</td>';
@@ -89,7 +80,6 @@
               echo '</div>';
               ?>
 
-
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -102,22 +92,18 @@
       <!-- /.content -->
     </div>
 
-
     <!-- Main Footer -->
     <?php include 'includes/footer.php' ?>
 
   </div>
   <!-- ./wrapper -->
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/adminlte.js"></script>
-  <!-- jQuery -->
-  <script src="js/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- SCRIPTS -->
+  <?php include 'includes/js.php' ?>
+
   <!-- DataTables -->
-  <script src="js/jquery.dataTables.min.js"></script>
-  <script src="js/dataTables.bootstrap4.min.js"></script>
+  <script src="includes/js/jquery.dataTables.min.js"></script>
+  <script src="includes/js/dataTables.bootstrap4.min.js"></script>
 
   <!-- AdminLTE for demo purposes -->
   <!-- page script -->

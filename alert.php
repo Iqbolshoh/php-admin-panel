@@ -16,26 +16,20 @@
 
     <!-- Navbar -->
     <?php include 'includes/navbar.php' ?>
+    <?php active('Alerts', 1) ?>
 
-
-    <!-- Main Sidebar Container -->
+    <!-- Page path -->
     <?php
-    include 'includes/aside.php';
-    active('alerts', 'alert');
+    $arr = array(
+      ["title" => "Home", "url" => "/"],
+      ["title" => "Alerts", "url" => "#"],
+    );
+    pagePath('Alerts', $arr);
     ?>
-
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-      <!-- Content Header (Page header) -->
-      <?php
-      $arr = array(
-        ["title" => "Home", "url" => "/"],
-        ["title" => "Alerts", "url" => "#"],
-      );
-      pagePath('Alerts', $arr);
-      ?>
 
       <div class="card card-success card-outline">
         <div class="card-header">
@@ -102,15 +96,8 @@
 
   </div>
 
-  <!-- jQuery -->
-  <script src="js/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <!-- SweetAlert2 -->
-  <script src="js/sweetalert2.min.js"></script>
-  <!-- Toastr -->
-  <script src="js/toastr.min.js"></script>
-  <script src="js/adminlte.min.js"></script>
+  <!-- SCRIPTS -->
+  <?php include 'includes/js.php' ?>
 
   <script type="text/javascript">
     $(function() {

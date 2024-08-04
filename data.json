@@ -1,0 +1,401 @@
+[
+    {
+        "Rendering_engine": "Trident",
+        "Browser": "Internet Explorer 4.0",
+        "Platform": "Win 95+",
+        "Engine_version": "4",
+        "CSS_grade": "X"
+    },
+    {
+        "Rendering_engine": "Trident",
+        "Browser": "Internet Explorer 5.0",
+        "Platform": "Win 95+",
+        "Engine_version": "5",
+        "CSS_grade": "C"
+    },
+    {
+        "Rendering_engine": "Trident",
+        "Browser": "Internet Explorer 5.5",
+        "Platform": "Win 95+",
+        "Engine_version": "5.5",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Trident",
+        "Browser": "Internet Explorer 6",
+        "Platform": "Win 98+",
+        "Engine_version": "6",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Trident",
+        "Browser": "Internet Explorer 7",
+        "Platform": "Win XP SP2+",
+        "Engine_version": "7",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Trident",
+        "Browser": "AOL browser (AOL desktop)",
+        "Platform": "Win XP",
+        "Engine_version": "6",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Firefox 1.0",
+        "Platform": "Win 98+ / OSX.2+",
+        "Engine_version": "1.7",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Firefox 1.5",
+        "Platform": "Win 98+ / OSX.2+",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Firefox 2.0",
+        "Platform": "Win 98+ / OSX.2+",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Firefox 3.0",
+        "Platform": "Win 2k+ / OSX.3+",
+        "Engine_version": "1.9",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Camino 1.0",
+        "Platform": "OSX.2+",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Camino 1.5",
+        "Platform": "OSX.3+",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Netscape 7.2",
+        "Platform": "Win 95+ / Mac OS 8.6-9.2",
+        "Engine_version": "1.7",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Netscape Browser 8",
+        "Platform": "Win 98SE+",
+        "Engine_version": "1.7",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Netscape Navigator 9",
+        "Platform": "Win 98+ / OSX.2+",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.0",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "1",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.1",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "1.1",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.2",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "1.2",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.3",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "1.3",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.4",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "1.4",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.5",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "1.5",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.6",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "1.6",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.7",
+        "Platform": "Win 98+ / OSX.1+",
+        "Engine_version": "1.7",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Mozilla 1.8",
+        "Platform": "Win 98+ / OSX.1+",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Seamonkey 1.1",
+        "Platform": "Win 98+ / OSX.2+",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Gecko",
+        "Browser": "Epiphany 2.20",
+        "Platform": "Gnome",
+        "Engine_version": "1.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Webkit",
+        "Browser": "Safari 1.2",
+        "Platform": "OSX.3",
+        "Engine_version": "125.5",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Webkit",
+        "Browser": "Safari 1.3",
+        "Platform": "OSX.3",
+        "Engine_version": "312.8",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Webkit",
+        "Browser": "Safari 2.0",
+        "Platform": "OSX.4+",
+        "Engine_version": "419.3",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Webkit",
+        "Browser": "Safari 3.0",
+        "Platform": "OSX.4+",
+        "Engine_version": "522.1",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Webkit",
+        "Browser": "OmniWeb 5.5",
+        "Platform": "OSX.4+",
+        "Engine_version": "420",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Webkit",
+        "Browser": "iPod Touch / iPhone",
+        "Platform": "iPod",
+        "Engine_version": "420.1",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Webkit",
+        "Browser": "S60",
+        "Platform": "S60",
+        "Engine_version": "413",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera 7.0",
+        "Platform": "Win 95+ / OSX.1+",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera 7.5",
+        "Platform": "Win 95+ / OSX.2+",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera 8.0",
+        "Platform": "Win 95+ / OSX.2+",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera 8.5",
+        "Platform": "Win 95+ / OSX.2+",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera 9.0",
+        "Platform": "Win 95+ / OSX.3+",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera 9.2",
+        "Platform": "Win 88+ / OSX.3+",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera 9.5",
+        "Platform": "Win 88+ / OSX.3+",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Opera for Wii",
+        "Platform": "Wii",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Nokia N800",
+        "Platform": "N800",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Presto",
+        "Browser": "Nintendo DS browser",
+        "Platform": "Nintendo DS",
+        "Engine_version": "8.5",
+        "CSS_grade": "C/A"
+    },
+    {
+        "Rendering_engine": "KHTML",
+        "Browser": "Konqureror 3.1",
+        "Platform": "KDE 3.1",
+        "Engine_version": "3.1",
+        "CSS_grade": "C"
+    },
+    {
+        "Rendering_engine": "KHTML",
+        "Browser": "Konqureror 3.3",
+        "Platform": "KDE 3.3",
+        "Engine_version": "3.3",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "KHTML",
+        "Browser": "Konqureror 3.5",
+        "Platform": "KDE 3.5",
+        "Engine_version": "3.5",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Tasman",
+        "Browser": "Internet Explorer 4.5",
+        "Platform": "Mac OS 8-9",
+        "Engine_version": "-",
+        "CSS_grade": "X"
+    },
+    {
+        "Rendering_engine": "Tasman",
+        "Browser": "Internet Explorer 5.1",
+        "Platform": "Mac OS 7.6-9",
+        "Engine_version": "1",
+        "CSS_grade": "C"
+    },
+    {
+        "Rendering_engine": "Tasman",
+        "Browser": "Internet Explorer 5.2",
+        "Platform": "Mac OS 8-X",
+        "Engine_version": "1",
+        "CSS_grade": "C"
+    },
+    {
+        "Rendering_engine": "Misc",
+        "Browser": "NetFront 3.1",
+        "Platform": "Embedded devices",
+        "Engine_version": "-",
+        "CSS_grade": "C"
+    },
+    {
+        "Rendering_engine": "Misc",
+        "Browser": "NetFront 3.4",
+        "Platform": "Embedded devices",
+        "Engine_version": "-",
+        "CSS_grade": "A"
+    },
+    {
+        "Rendering_engine": "Misc",
+        "Browser": "Dillo 0.8",
+        "Platform": "Embedded devices",
+        "Engine_version": "-",
+        "CSS_grade": "X"
+    },
+    {
+        "Rendering_engine": "Misc",
+        "Browser": "Links",
+        "Platform": "Text only",
+        "Engine_version": "-",
+        "CSS_grade": "X"
+    },
+    {
+        "Rendering_engine": "Misc",
+        "Browser": "Lynx",
+        "Platform": "Text only",
+        "Engine_version": "-",
+        "CSS_grade": "X"
+    },
+    {
+        "Rendering_engine": "Misc",
+        "Browser": "IE Mobile",
+        "Platform": "Windows Mobile 6",
+        "Engine_version": "-",
+        "CSS_grade": "C"
+    },
+    {
+        "Rendering_engine": "Misc",
+        "Browser": "PSP browser",
+        "Platform": "PSP",
+        "Engine_version": "-",
+        "CSS_grade": "C"
+    },
+    {
+        "Rendering_engine": "Other browsers",
+        "Browser": "All others",
+        "Platform": "-",
+        "Engine_version": "-",
+        "CSS_grade": "U"
+    }
+]

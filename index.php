@@ -14,29 +14,22 @@
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
 
+
     <!-- Navbar -->
-    <?php include 'includes/navbar.php'; ?>
+    <?php include 'includes/navbar.php' ?>
+    <?php active('Dashboard', 1) ?>
 
-
-    <!-- Main Sidebar Container -->
+    <!-- Page path -->
     <?php
-    include 'includes/aside.php';
-    active('dashboard', 'dashboard');
+    $arr = array(
+      ["title" => "Home", "url" => "/"],
+      ["title" => "Dashboard", "url" => "#"],
+    );
+    pagePath('Dashboard', $arr);
     ?>
-
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
-      <!-- Content Header (Page header) -->
-      <?php
-      $arr = array(
-        ["title" => "Home", "url" => "/"],
-        ["title" => "Dashboard", "url" => "#"],
-      );
-      pagePath('Dashboard', $arr);
-      ?>
-
 
       <section class="content">
         <div class="container-fluid">
@@ -112,8 +105,7 @@
   </div>
 
   <!-- SCRIPTS -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/adminlte.js"></script>
+  <?php include 'includes/js.php' ?>
 </body>
 
 </html>
