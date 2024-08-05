@@ -128,11 +128,47 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
 
-## Contact
+## Connect with Me
 
-Feel free to reach out or connect through the following platforms:
+I love connecting with new people and exploring new opportunities. Feel free to reach out to me through any of the
+platforms below:
 
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/iqbolshoh_777)
-[![Thread](https://img.shields.io/badge/Thread-%2317B7B7.svg?style=for-the-badge&logo=thread&logoColor=white)](https://www.threads.net/Iqbolshoh_777)
-[![Telegram](https://img.shields.io/badge/Telegram-%0088CC.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Iqbolshoh_777)
-[![X](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Iqbolshoh_777)
+<table>
+    <tr>
+        <td>
+            <a href="https://t.me/iqbolshoh_777">
+                <img src="https://github.com/gayanvoice/github-active-users-monitor/blob/master/public/images/icons/telegram.svg"
+                    height="48" width="48" alt="Telegram" />
+            </a>
+        </td>
+        <td>
+            <a href="https://instagram.com/iqbolshoh_777" target="blank"><img align="center"
+                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg"
+                    alt="instagram" height="48" width="48" /></a>
+        </td>
+        <td>
+            <a href="https://wa.me/qr/22PVFQSMQQX4F1">
+                <img src="https://github.com/gayanvoice/github-active-users-monitor/blob/master/public/images/icons/whatsapp.svg"
+                    height="48" width="48" alt="WhatsApp" />
+            </a>
+        </td>
+        <td>
+            <a href="https://x.com/iqbolshoh_777">
+                <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" height="48"
+                    width="48" alt="Twitter" />
+            </a>
+        </td>
+        <td>
+            <a href="https://www.linkedin.com/in/iqbolshoh/">
+                <img src="https://github.com/gayanvoice/github-active-users-monitor/blob/master/public/images/icons/linkedin.svg"
+                    height="48" width="48" alt="LinkedIn" />
+            </a>
+        </td>
+        <td>
+            <a href="mailto:iilhomjonov777@gmail.com">
+                <img src="https://github.com/gayanvoice/github-active-users-monitor/blob/master/public/images/icons/gmail.svg"
+                    height="48" width="48" alt="Email" />
+            </a>
+        </td>
+    </tr>
+</table>
