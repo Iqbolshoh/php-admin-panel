@@ -4,43 +4,6 @@ This project is a PHP-based web application developed by Iqbolshoh Ilhomjonov. T
 
 ![Banner](images/banner.png)
 
-## Project Structure
-
-The project structure is as follows:
-
-```
-.
-├── images
-│   ├── AdminLTELogo.png
-│   ├── user2-160x160.jpg
-│   ├── banner.png
-├── includes
-│   ├── css.php
-│   ├── footer.php
-│   ├── js.php
-│   ├── navbar.php
-│   ├── js
-│   │   ├── adminlte.js
-│   │   ├── adminlte.min.js
-│   │   ├── bootstrap.bundle.min.js
-│   │   ├── dataTables.bootstrap4.min.js
-│   │   ├── jquery.dataTables.min.js
-│   │   ├── jquery.min.js
-│   │   ├── sweetalert2.min.js
-│   │   └── toastr.min.js
-│   ├── css
-│   │   ├── adminlte.min.css
-│   │   ├── dataTables.bootstrap4.min.css
-│   │   ├── sweetalert2-theme-bootstrap-4.css
-│   │   └── toastr.min.css
-├── alert.php
-├── data.json
-├── index.php
-├── iqbolshoh.php
-├── table.php
-└── README.md
-```
-
 ## Installation
 
 To run this project locally, follow these steps:
