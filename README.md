@@ -1,8 +1,8 @@
 # PHP Admin Panel
 
-![Banner](images/banner.png)
-
 This project is a PHP-based web application developed by Iqbolshoh Ilhomjonov. The application includes various features and functionalities such as user alerts, data tables, a dynamic navigation menu, and a customizable admin panel with a banner.
+
+![Banner](images/banner.png)
 
 ## Table of Contents
 
