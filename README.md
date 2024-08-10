@@ -4,15 +4,6 @@ This project is a PHP-based web application developed by Iqbolshoh Ilhomjonov. T
 
 ![Banner](images/banner.png)
 
-## Table of Contents
-
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [Contact](#contact)
-
 ## Project Structure
 
 The project structure is as follows:
