@@ -9,7 +9,6 @@ This project is a PHP-based web application developed by Iqbolshoh Ilhomjonov. T
 - [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Files Description](#files-description)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [Contact](#contact)
