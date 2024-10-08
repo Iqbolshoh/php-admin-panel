@@ -11,24 +11,22 @@
   <?php include 'includes/css.php'; ?>
 </head>
 
+<!-- Navbar -->
+<?php include 'includes/navbar.php' ?>
+
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
 
-
-    <!-- Navbar -->
-    <?php include 'includes/navbar.php' ?>
-
-    <!-- Page path -->
-    <?php
-    $arr = array(
-      ["title" => "Home", "url" => "./"],
-      ["title" => "Dashboard", "url" => "#"],
-    );
-    pagePath('Dashboard', $arr);
-    ?>
-
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+
+      <!-- Page path -->
+      <?php
+      $arr = array(
+        ["title" => "Home", "url" => "./"],
+        ["title" => "Dashboard", "url" => "#"],
+      );
+      pagePath('Dashboard', $arr);
+      ?>
 
       <section class="content">
         <div class="container-fluid">

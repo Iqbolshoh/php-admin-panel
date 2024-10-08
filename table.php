@@ -17,16 +17,17 @@
     <!-- Navbar -->
     <?php include 'includes/navbar.php' ?>
 
-    <!-- Page path -->
-    <?php
-    $arr = array(
-      ["title" => "Home", "url" => "./"],
-      ["title" => "DataTable", "url" => "#"],
-    );
-    pagePath('DataTable', $arr);
-    ?>
-
     <div class="content-wrapper">
+
+      <!-- Page path -->
+      <?php
+      $arr = array(
+        ["title" => "Home", "url" => "./"],
+        ["title" => "DataTable", "url" => "#"],
+      );
+      pagePath('DataTable', $arr);
+      ?>
+
       <!-- Main content -->
       <section class="content">
         <div class="row">
@@ -107,7 +108,7 @@
   <!-- AdminLTE for demo purposes -->
   <!-- page script -->
   <script>
-    $(function() {
+    $(function () {
       $("#example1").DataTable({
         "responsive": true,
         "autoWidth": false,
