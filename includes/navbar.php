@@ -1,3 +1,5 @@
+<?php $current_page = basename($_SERVER['SCRIPT_NAME']) ?>
+
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -5,7 +7,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/" class="nav-link">Home</a>
+            <a href="./" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a class="nav-link">Contact</a>
@@ -46,120 +48,112 @@
     </ul>
 </nav>
 
-<?php
-function active($menu, $num)
-{
-    $num = "$menu-$num";
-?>
 
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="/" class="brand-link">
-            <img src="images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
-        </a>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="images/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Iqbolshoh Ilhomjonov</a>
-                </div>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="./" class="brand-link">
+        <img src="images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="images/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-                    <li class="nav-item has-treeview <?= ($menu === 'Dashboard') ? 'menu-open' : ''; ?>">
-                        <a class="nav-link <?= ($menu === 'Dashboard') ? 'active' : ''; ?>">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="./" class="nav-link <?= ($num === 'Dashboard-1') ? 'active' : ''; ?>">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v1</p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="iqbolshoh.php" class="nav-link <?= ($num === 'Dashboard-2') ? 'active' : ''; ?>">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>iqbolshoh.uz</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-item has-treeview <?= ($menu === 'Tables') ? 'menu-open' : ''; ?>">
-                        <a class="nav-link <?= ($menu === 'Tables') ? 'active' : ''; ?>">
-                            <i class="nav-icon fas fa-table"></i>
-                            <p>
-                                Tables
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="table.php" class="nav-link <?= ($num === 'Tables-1') ? 'active' : ''; ?>">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Data Table</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-header">EXAMPLES</li>
-
-
-                    <li class="nav-item has-treeview <?= ($menu === 'Alerts') ? 'menu-open' : ''; ?>">
-                        <a class="nav-link <?= ($menu === 'Alerts') ? 'active' : ''; ?>">
-                            <i class="nav-icon far fa-plus-square"></i>
-                            <p>
-                                Alerts
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="alert.php" class="nav-link <?= ($num === 'Alerts-1') ? 'active' : ''; ?>">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Alert</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
+            <div class="info">
+                <a href="#" class="d-block">Iqbolshoh Ilhomjonov</a>
+            </div>
         </div>
-        <!-- /.sidebar -->
-    </aside>
 
-<?php
-}
-?>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item has-treeview <?= ($current_page === 'index.php') ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./" class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Dashboard v1</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item has-treeview <?= ($current_page === 'table.php') ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Tables
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="table.php" class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Table</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="tables.php" class="nav-link <?= ($current_page === 'tables.php') ? 'active' : ''; ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Tables</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-header">EXAMPLES</li>
+
+
+                <li class="nav-item has-treeview <?= ($current_page === 'alert.php') ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                            Alerts
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a href="alert.php" class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Alert</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
 
 <?php
 function pagePath($pageTitle, $breadcrumb)
 {
 ?>
+
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">

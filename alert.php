@@ -16,12 +16,11 @@
 
     <!-- Navbar -->
     <?php include 'includes/navbar.php' ?>
-    <?php active('Alerts', 1) ?>
 
     <!-- Page path -->
     <?php
     $arr = array(
-      ["title" => "Home", "url" => "/"],
+      ["title" => "Home", "url" => "./"],
       ["title" => "Alerts", "url" => "#"],
     );
     pagePath('Alerts', $arr);
