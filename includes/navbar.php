@@ -1,4 +1,4 @@
-<?php $current_page = basename($_SERVER['SCRIPT_NAME']) ?>
+<?php $page = basename($_SERVER['SCRIPT_NAME']) ?>
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -73,8 +73,8 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item has-treeview <?= ($current_page === 'index.php') ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= in_array($page, ['index.php']) ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($page === 'index.php') ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -83,7 +83,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./" class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
+                            <a href="./" class="nav-link <?= ($page === 'index.php') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dashboard v1</p>
                             </a>
@@ -92,8 +92,8 @@
                 </li>
 
 
-                <li class="nav-item has-treeview <?= ($current_page === 'table.php') ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= in_array($page, ['table.php']) ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($page === 'table.php') ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tables
@@ -102,17 +102,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="table.php" class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
+                            <a href="table.php" class="nav-link <?= ($page === 'table.php') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Table</p>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="tables.php" class="nav-link <?= ($current_page === 'tables.php') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Tables</p>
                             </a>
                         </li>
                     </ul>
@@ -122,8 +114,8 @@
                 <li class="nav-header">EXAMPLES</li>
 
 
-                <li class="nav-item has-treeview <?= ($current_page === 'alert.php') ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= in_array($page, ['alert.php']) ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($page === 'alert.php') ? 'active' : ''; ?>">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
                             Alerts
@@ -133,7 +125,7 @@
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="alert.php" class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
+                            <a href="alert.php" class="nav-link <?= ($page === 'alert.php') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Alert</p>
                             </a>
