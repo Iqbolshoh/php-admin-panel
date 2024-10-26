@@ -1,4 +1,35 @@
-<?php $page = basename($_SERVER['SCRIPT_NAME']) ?>
+<?php
+function pagePath($pageTitle, $breadcrumb)
+{
+    ?>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">
+                        <?php echo $pageTitle; ?>
+                    </h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <?php foreach ($breadcrumb as $item): ?>
+                            <?php if ($item['url'] === '#'): ?>
+                                <li class="breadcrumb-item active"><?php echo $item['title']; ?></li>
+                            <?php else: ?>
+                                <li class="breadcrumb-item"><a href="<?php echo $item['url']; ?>"><?php echo $item['title']; ?></a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
+
+<?php $current_page = basename($_SERVER['SCRIPT_NAME']) ?>
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -17,7 +48,8 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="search">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"
+                name="search">
             <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                     <i class="fas fa-search"></i>
@@ -42,18 +74,14 @@
                 <span class="badge badge-warning navbar-badge">15</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i class="fas fa-th-large"></i></a>
-        </li>
     </ul>
 </nav>
-
-
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="./" class="brand-link">
-        <img src="images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -73,8 +101,8 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item has-treeview <?= in_array($page, ['index.php']) ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($page === 'index.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= ($current_page === 'index.php') ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -83,7 +111,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./" class="nav-link <?= ($page === 'index.php') ? 'active' : ''; ?>">
+                            <a href="./" class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dashboard v1</p>
                             </a>
@@ -91,9 +119,8 @@
                     </ul>
                 </li>
 
-
-                <li class="nav-item has-treeview <?= in_array($page, ['table.php']) ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($page === 'table.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= ($current_page === 'table.php') ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tables
@@ -102,7 +129,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="table.php" class="nav-link <?= ($page === 'table.php') ? 'active' : ''; ?>">
+                            <a href="table.php"
+                                class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Table</p>
                             </a>
@@ -110,12 +138,10 @@
                     </ul>
                 </li>
 
-
                 <li class="nav-header">EXAMPLES</li>
 
-
-                <li class="nav-item has-treeview <?= in_array($page, ['alert.php']) ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($page === 'alert.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= ($current_page === 'alert.php') ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
                             Alerts
@@ -123,14 +149,13 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-
                         <li class="nav-item">
-                            <a href="alert.php" class="nav-link <?= ($page === 'alert.php') ? 'active' : ''; ?>">
+                            <a href="alert.php"
+                                class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Alert</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
@@ -140,32 +165,3 @@
     </div>
     <!-- /.sidebar -->
 </aside>
-
-<?php
-function pagePath($pageTitle, $breadcrumb)
-{
-?>
-
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"><?php echo $pageTitle; ?></h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <?php foreach ($breadcrumb as $item) : ?>
-                            <?php if ($item['url'] === '#') : ?>
-                                <li class="breadcrumb-item active"><?php echo $item['title']; ?></li>
-                            <?php else : ?>
-                                <li class="breadcrumb-item"><a href="<?php echo $item['url']; ?>"><?php echo $item['title']; ?></a></li>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php
-}
