@@ -113,7 +113,7 @@ function pagePath($pageTitle, $breadcrumb)
                         <li class="nav-item">
                             <a href="./" class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
                     </ul>
