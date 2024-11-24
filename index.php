@@ -7,19 +7,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Starter</title>
-  <!-- css -->
   <?php include 'includes/css.php'; ?>
 </head>
 
-<!-- Navbar -->
-<?php include 'includes/navbar.php' ?>
-
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-
+    <?php include 'includes/navbar.php' ?>
     <div class="content-wrapper">
 
-      <!-- Page path -->
       <?php
       $arr = array(
         ["title" => "Home", "url" => "./"],
@@ -94,14 +89,13 @@
           </div>
 
         </div>
+        
       </section>
     </div>
 
-    <!-- Main Footer -->
     <?php include 'includes/footer.php'; ?>
   </div>
 
-  <!-- SCRIPTS -->
   <?php include 'includes/js.php' ?>
 </body>
 

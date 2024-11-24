@@ -1,7 +1,7 @@
 <?php
 function pagePath($pageTitle, $breadcrumb)
 {
-    ?>
+?>
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -25,7 +25,7 @@ function pagePath($pageTitle, $breadcrumb)
             </div>
         </div>
     </div>
-    <?php
+<?php
 }
 ?>
 
@@ -101,8 +101,8 @@ function pagePath($pageTitle, $breadcrumb)
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item has-treeview <?= ($current_page === 'index.php') ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= in_array($current_page, ['index.php']) ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= in_array($current_page, ['index.php']) ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -119,29 +119,10 @@ function pagePath($pageTitle, $breadcrumb)
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview <?= ($current_page === 'table.php') ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Tables
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="table.php"
-                                class="nav-link <?= ($current_page === 'table.php') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Table</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="nav-header">EXAMPLES</li>
 
-                <li class="nav-item has-treeview <?= ($current_page === 'alert.php') ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= in_array($current_page, ['alert.php'])  ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= in_array($current_page, ['alert.php'])  ? 'active' : ''; ?>">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
                             Alerts
