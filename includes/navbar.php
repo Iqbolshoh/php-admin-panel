@@ -1,7 +1,7 @@
 <?php
 function pagePath($pageTitle, $breadcrumb)
 {
-?>
+    ?>
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -25,7 +25,7 @@ function pagePath($pageTitle, $breadcrumb)
             </div>
         </div>
     </div>
-<?php
+    <?php
 }
 ?>
 
@@ -62,14 +62,14 @@ function pagePath($pageTitle, $breadcrumb)
     <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" href="/#messages">
+            <a class="nav-link" href="#messages">
                 <i class="far fa-comments"></i>
                 <span class="badge badge-danger navbar-badge">3</span>
             </a>
         </li>
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" href="/#messages">
+            <a class="nav-link" href="#messages">
                 <i class="far fa-bell"></i>
                 <span class="badge badge-warning navbar-badge">15</span>
             </a>
@@ -121,8 +121,8 @@ function pagePath($pageTitle, $breadcrumb)
 
                 <li class="nav-header">EXAMPLES</li>
 
-                <li class="nav-item has-treeview <?= in_array($current_page, ['alert.php'])  ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= in_array($current_page, ['alert.php'])  ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= in_array($current_page, ['alert.php']) ? 'menu-open' : ''; ?>">
+                    <a class="nav-link <?= in_array($current_page, ['alert.php']) ? 'active' : ''; ?>">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
                             Alerts
