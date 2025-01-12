@@ -17,9 +17,9 @@
       <?php
       $arr = array(
         ["title" => "Home", "url" => "./"],
-        ["title" => "Alerts", "url" => "#"],
+        ["title" => "Dashboard", "url" => "#"],
       );
-      pagePath('Alerts', $arr);
+      renderHeader('Dashboard', $arr);
       ?>
 
       <section class="content">
