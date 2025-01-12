@@ -102,7 +102,6 @@ function pagePath($pageTitle, $breadcrumb)
             [
                 "menu" => "Dashboard",
                 "title" => "Dashboard",
-                "url" => "./",
                 "icon" => "fas fa-tachometer-alt",
                 "active_pages" => ["index.php"],
                 "sub_menu" => [
@@ -118,7 +117,6 @@ function pagePath($pageTitle, $breadcrumb)
             [
                 "menu" => "Alerts",
                 "title" => "Alerts",
-                "url" => "./",
                 "icon" => "far fa-plus-square",
                 "active_pages" => ["alert.php"],
                 "sub_menu" => [
@@ -143,7 +141,7 @@ function pagePath($pageTitle, $breadcrumb)
                     $is_active = in_array($current_page, $item['active_pages']) ? 'active' : '';
                     ?>
                     <li class="nav-item has-treeview <?= $is_menu_open ?>">
-                        <a href="<?= $item['url'] ?>" class="nav-link <?= $is_active ?>">
+                        <a class="nav-link <?= $is_active ?>">
                             <i class="nav-icon <?= $item['icon'] ?>"></i>
                             <p>
                                 <?= $item['title'] ?>
