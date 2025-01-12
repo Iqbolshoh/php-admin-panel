@@ -1,5 +1,6 @@
 <?php
-function pagePath($pageTitle, $breadcrumb)
+// Function to display page title and breadcrumb navigation
+function displayPageHeader($pageTitle, $breadcrumbItems)
 {
     ?>
     <div class="content-header">
@@ -12,7 +13,7 @@ function pagePath($pageTitle, $breadcrumb)
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <?php foreach ($breadcrumb as $item): ?>
+                        <?php foreach ($breadcrumbItems as $item): ?>
                             <?php if ($item['url'] === '#'): ?>
                                 <li class="breadcrumb-item active"><?php echo $item['title']; ?></li>
                             <?php else: ?>
@@ -30,7 +31,7 @@ function pagePath($pageTitle, $breadcrumb)
 ?>
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+    <!-- Left side of the navbar -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -40,7 +41,7 @@ function pagePath($pageTitle, $breadcrumb)
         </li>
     </ul>
 
-    <!-- SEARCH FORM -->
+    <!-- Search form -->
     <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
             <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"
@@ -53,7 +54,7 @@ function pagePath($pageTitle, $breadcrumb)
         </div>
     </form>
 
-    <!-- Right navbar links -->
+    <!-- Right side of the navbar -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a class="nav-link" href="#messages">
@@ -61,9 +62,9 @@ function pagePath($pageTitle, $breadcrumb)
                 <span class="badge badge-danger navbar-badge">3</span>
             </a>
         </li>
-        <!-- Notifications Dropdown Menu -->
+        <!-- Notifications dropdown -->
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#messages">
+            <a class="nav-link" href="#notifications">
                 <i class="far fa-bell"></i>
                 <span class="badge badge-warning navbar-badge">15</span>
             </a>
@@ -72,7 +73,7 @@ function pagePath($pageTitle, $breadcrumb)
 </nav>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
+    <!-- Logo -->
     <a href="./" class="brand-link">
         <img src="./src/images/logo.png" alt="Admin Panel Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
@@ -90,13 +91,14 @@ function pagePath($pageTitle, $breadcrumb)
             </div>
         </div>
 
-        <!-- Sidebar Menu -->
+        <!-- Sidebar menu -->
         <?php
-        $current_page = basename($_SERVER['SCRIPT_NAME']);
+        $currentPage = basename($_SERVER['SCRIPT_NAME']);
 
-        $menu = [
+        // Menu structure
+        $menuItems = [
             [
-                "menu_title" => "Menu",
+                "menuTitle" => "Menu",
                 "icon" => "fas fa-home",
                 "pages" => [
                     [
@@ -110,7 +112,7 @@ function pagePath($pageTitle, $breadcrumb)
                 ],
             ],
             [
-                "menu_title" => "Settings",
+                "menuTitle" => "Settings",
                 "icon" => "fas fa-cogs",
                 "pages" => [
                     [
@@ -124,34 +126,34 @@ function pagePath($pageTitle, $breadcrumb)
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <?php foreach ($menu as $item): ?>
+                <?php foreach ($menuItems as $menuItem): ?>
                     <?php
-                    $is_active = false;
-                    $is_menu_open = false;
-                    foreach ($item['pages'] as $page) {
-                        if ($current_page === $page['url']) {
-                            $is_active = true;
-                            $is_menu_open = true;
+                    $isActive = false;
+                    $isMenuOpen = false;
+                    foreach ($menuItem['pages'] as $page) {
+                        if ($currentPage === $page['url']) {
+                            $isActive = true;
+                            $isMenuOpen = true;
                             break;
                         }
                     }
                     ?>
-                    <li class="nav-item has-treeview <?= $is_menu_open ? 'menu-open' : '' ?>">
-                        <a class="nav-link <?= $is_active ? 'active' : '' ?>">
-                            <i class="nav-icon <?= $item['icon'] ?>"></i>
+                    <li class="nav-item has-treeview <?= $isMenuOpen ? 'menu-open' : '' ?>">
+                        <a class="nav-link <?= $isActive ? 'active' : '' ?>">
+                            <i class="nav-icon <?= $menuItem['icon'] ?>"></i>
                             <p>
-                                <?= $item['menu_title'] ?>
-                                <?php if (!empty($item['pages'])): ?>
+                                <?= $menuItem['menuTitle'] ?>
+                                <?php if (!empty($menuItem['pages'])): ?>
                                     <i class="right fas fa-angle-left"></i>
                                 <?php endif; ?>
                             </p>
                         </a>
-                        <?php if (!empty($item['pages'])): ?>
+                        <?php if (!empty($menuItem['pages'])): ?>
                             <ul class="nav nav-treeview">
-                                <?php foreach ($item['pages'] as $page): ?>
+                                <?php foreach ($menuItem['pages'] as $page): ?>
                                     <li class="nav-item">
                                         <a href="<?= $page['url'] ?>"
-                                            class="nav-link <?= $current_page === $page['url'] ? 'active' : '' ?>">
+                                            class="nav-link <?= $currentPage === $page['url'] ? 'active' : '' ?>">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p><?= $page['title'] ?></p>
                                         </a>
