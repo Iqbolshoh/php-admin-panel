@@ -95,67 +95,69 @@ function pagePath($pageTitle, $breadcrumb)
             </div>
         </div>
 
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <?php
+        $current_page = basename($_SERVER['SCRIPT_NAME']);
 
-                <?php $current_page = basename($_SERVER['SCRIPT_NAME']) ?>
-                <?php
+        /**
+         * Active yoki menu-open sinflarini aniqlash uchun yordamchi funksiya
+         */
+        function isActive($current_page, $active_pages, $class)
+        {
+            return in_array($current_page, $active_pages) ? $class : '';
+        }
 
-                $menu = [
+        $menu = [
+            [
+                "menu" => "Dashboard",
+                "title" => "Dashboard",
+                "url" => "./",
+                "icon" => "fas fa-tachometer-alt",
+                "active_pages" => ["index.php"],
+                "sub_menu" => [
                     [
                         "menu" => "Dashboard",
                         "title" => "Dashboard",
                         "url" => "./",
-                        "icon" => "fas fa-tachometer-alt",
+                        "icon" => "far fa-circle",
                         "active_pages" => ["index.php"],
-                        "sub_menu" => [
-                            [
-                                "menu" => "Dashboard",
-                                "title" => "Dashboard",
-                                "url" => "./",
-                                "icon" => "far fa-circle",
-                                "active_pages" => ["index.php"],
-                            ],
-                        ],
                     ],
-                ];
+                ],
+            ],
+        ];
 
-                foreach ($menu as $item) {
-                    $is_menu_open = in_array($current_page, $item['active_pages']) ? 'menu-open' : '';
-                    $is_active = in_array($current_page, $item['active_pages']) ? 'active' : '';
+        ?>
 
-                    echo "<li class='nav-item has-treeview {$is_menu_open}'>";
-                    echo "<a class='nav-link {$is_active}'>";
-                    echo "<i class='nav-icon {$item['icon']}'></i>";
-                    echo "<p>";
-                    echo "{$item['title']}";
-                    echo "<i class='right fas fa-angle-left'></i>";
-                    echo "</p>";
-                    echo "</a>";
-
-                    if (!empty($item['sub_menu'])) {
-                        echo "<ul class='nav nav-treeview'>";
-                        foreach ($item['sub_menu'] as $sub_item) {
-                            $sub_active = in_array($current_page, $sub_item['active_pages']) ? 'active' : '';
-                            echo "<li class='nav-item'>";
-                            echo "<a href='{$sub_item['url']}' class='nav-link {$sub_active}'>";
-                            echo "<i class='{$sub_item['icon']} nav-icon'></i>";
-                            echo "<p>{$sub_item['title']}</p>";
-                            echo "</a>";
-                            echo "</li>";
-                        }
-                        echo "</ul>";
-                    }
-
-                    echo "</li>";
-                }
-                ?>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <?php foreach ($menu as $item): ?>
+                    <li class="nav-item has-treeview <?= isActive($current_page, $item['active_pages'], 'menu-open') ?>">
+                        <a class="nav-link <?= isActive($current_page, $item['active_pages'], 'active') ?>">
+                            <i class="nav-icon <?= $item['icon'] ?>"></i>
+                            <p>
+                                <?= $item['title'] ?>
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <?php if (!empty($item['sub_menu'])): ?>
+                            <ul class="nav nav-treeview">
+                                <?php foreach ($item['sub_menu'] as $sub_item): ?>
+                                    <li class="nav-item">
+                                        <a href="<?= $sub_item['url'] ?>"
+                                            class="nav-link <?= isActive($current_page, $sub_item['active_pages'], 'active') ?>">
+                                            <i class="<?= $sub_item['icon'] ?> nav-icon"></i>
+                                            <p><?= $sub_item['title'] ?></p>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
 
                 <li class="nav-header">EXAMPLES</li>
-
-                <li class="nav-item has-treeview <?= in_array($current_page, ['alert.php']) ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= in_array($current_page, ['alert.php']) ? 'active' : ''; ?>">
+                <li class="nav-item has-treeview <?= isActive($current_page, ['alert.php'], 'menu-open') ?>">
+                    <a class="nav-link <?= isActive($current_page, ['alert.php'], 'active') ?>">
                         <i class="nav-icon far fa-plus-square"></i>
                         <p>
                             Alerts
@@ -165,17 +167,17 @@ function pagePath($pageTitle, $breadcrumb)
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="alert.php"
-                                class="nav-link <?= ($current_page === 'alert.php') ? 'active' : ''; ?>">
+                                class="nav-link <?= isActive($current_page, ['alert.php'], 'active') ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Alert</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
     </div>
     <!-- /.sidebar -->
 </aside>
