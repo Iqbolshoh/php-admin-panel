@@ -100,8 +100,7 @@ function pagePath($pageTitle, $breadcrumb)
                 "menu" => "Menu",
                 "title" => "Menu",
                 "icon" => "fas fa-tachometer-alt",
-                "active_pages" => ["index.php", "alert.php"],
-                "sub_menu" => [
+                "pages" => [
                     [
                         "title" => "Dashboard",
                         "url" => "index.php",
@@ -112,7 +111,6 @@ function pagePath($pageTitle, $breadcrumb)
                     ],
                 ],
             ],
-
         ];
         ?>
 
@@ -121,27 +119,35 @@ function pagePath($pageTitle, $breadcrumb)
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <?php foreach ($menu as $item): ?>
                     <?php
-                    $is_menu_open = in_array($current_page, $item['active_pages']) ? 'menu-open' : '';
-                    $is_active = in_array($current_page, $item['active_pages']) ? 'active' : '';
+                    // Checking if any of the pages is the current one
+                    $is_menu_open = false;
+                    $is_active = false;
+                    foreach ($item['pages'] as $page) {
+                        if ($current_page === $page['url']) {
+                            $is_menu_open = true;
+                            $is_active = true;
+                            break;
+                        }
+                    }
                     ?>
-                    <li class="nav-item has-treeview <?= $is_menu_open ?>">
-                        <a class="nav-link <?= $is_active ?>">
+                    <li class="nav-item has-treeview <?= $is_menu_open ? 'menu-open' : '' ?>">
+                        <a class="nav-link <?= $is_active ? 'active' : '' ?>">
                             <i class="nav-icon <?= $item['icon'] ?>"></i>
                             <p>
                                 <?= $item['title'] ?>
-                                <?php if (!empty($item['sub_menu'])): ?>
+                                <?php if (!empty($item['pages'])): ?>
                                     <i class="right fas fa-angle-left"></i>
                                 <?php endif; ?>
                             </p>
                         </a>
-                        <?php if (!empty($item['sub_menu'])): ?>
+                        <?php if (!empty($item['pages'])): ?>
                             <ul class="nav nav-treeview">
-                                <?php foreach ($item['sub_menu'] as $sub_item): ?>
-                                    <?php $sub_active = $current_page === $sub_item['url'] ? 'active' : ''; ?>
+                                <?php foreach ($item['pages'] as $page): ?>
                                     <li class="nav-item">
-                                        <a href="<?= $sub_item['url'] ?>" class="nav-link <?= $sub_active ?>">
+                                        <a href="<?= $page['url'] ?>"
+                                            class="nav-link <?= $current_page === $page['url'] ? 'active' : '' ?>">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p><?= $sub_item['title'] ?></p>
+                                            <p><?= $page['title'] ?></p>
                                         </a>
                                     </li>
                                 <?php endforeach; ?>
@@ -152,7 +158,6 @@ function pagePath($pageTitle, $breadcrumb)
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
-
 
     </div>
     <!-- /.sidebar -->
