@@ -97,8 +97,7 @@ function pagePath($pageTitle, $breadcrumb)
 
         $menu = [
             [
-                "menu" => "Menu",
-                "title" => "Menu",
+                "menu_title" => "Menu",
                 "icon" => "fas fa-tachometer-alt",
                 "pages" => [
                     [
@@ -111,6 +110,7 @@ function pagePath($pageTitle, $breadcrumb)
                     ],
                 ],
             ],
+
         ];
         ?>
 
@@ -133,7 +133,7 @@ function pagePath($pageTitle, $breadcrumb)
                         <a class="nav-link <?= $is_active ? 'active' : '' ?>">
                             <i class="nav-icon <?= $item['icon'] ?>"></i>
                             <p>
-                                <?= $item['title'] ?>
+                                <?= $item['menu_title'] ?>
                                 <?php if (!empty($item['pages'])): ?>
                                     <i class="right fas fa-angle-left"></i>
                                 <?php endif; ?>
