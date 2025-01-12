@@ -12,7 +12,7 @@
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-    <?php include 'includes/navbar.php' ?>
+    <?php include 'includes/header.php' ?>
     <div class="content-wrapper">
 
       <?php
