@@ -110,7 +110,6 @@ function pagePath($pageTitle, $breadcrumb)
                     ],
                 ],
             ],
-
         ];
         ?>
 
@@ -119,18 +118,18 @@ function pagePath($pageTitle, $breadcrumb)
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <?php foreach ($menu as $item): ?>
                     <?php
-                    $is_menu_open = false;
                     $is_active = false;
+                    $is_menu_open = false;
                     foreach ($item['pages'] as $page) {
                         if ($current_page === $page['url']) {
-                            $is_menu_open = true;
                             $is_active = true;
+                            $is_menu_open = true;
                             break;
                         }
                     }
                     ?>
                     <li class="nav-item has-treeview <?= $is_menu_open ? 'menu-open' : '' ?>">
-                        <a class="nav-link <?= $is_active ? 'active' : '' ?>">
+                        <a href="#" class="nav-link <?= $is_active ? 'active' : '' ?>">
                             <i class="nav-icon <?= $item['icon'] ?>"></i>
                             <p>
                                 <?= $item['menu_title'] ?>
@@ -157,6 +156,7 @@ function pagePath($pageTitle, $breadcrumb)
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
     </div>
     <!-- /.sidebar -->
 
