@@ -111,11 +111,17 @@ function pagePath($pageTitle, $breadcrumb)
                         "url" => "index.php",
                         "icon" => "far fa-circle",
                     ],
+                    [
+                        "menu" => "Alert",
+                        "title" => "Alert",
+                        "url" => "alert.php",
+                        "icon" => "far fa-circle",
+                    ],
                 ],
             ],
             [
-                "menu" => "Alerts",
-                "title" => "Alerts",
+                "menu" => "Dashboard",
+                "title" => "Dashboard",
                 "icon" => "far fa-plus-square",
                 "url" => "alert.php",
                 "sub_menu" => [
