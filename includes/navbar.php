@@ -100,8 +100,8 @@ function pagePath($pageTitle, $breadcrumb)
 
         $menu = [
             [
-                "menu" => "Dashboard",
-                "title" => "Dashboard",
+                "menu" => "Menu",
+                "title" => "Menu",
                 "icon" => "fas fa-tachometer-alt",
                 "active_pages" => ["index.php", "alert.php"],
                 "sub_menu" => [
