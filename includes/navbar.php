@@ -91,7 +91,7 @@ function pagePath($pageTitle, $breadcrumb)
                 <img src="./src/images/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Iqbolshoh Ilhomjonov</a>
+                <a href="./" class="d-block">Iqbolshoh Ilhomjonov</a>
             </div>
         </div>
 
