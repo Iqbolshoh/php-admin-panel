@@ -118,7 +118,7 @@ function pagePath($pageTitle, $breadcrumb)
             [
                 "menu" => "Alerts",
                 "title" => "Alerts",
-                "url" => "#",
+                "url" => "./",
                 "icon" => "far fa-plus-square",
                 "active_pages" => ["alert.php"],
                 "sub_menu" => [
