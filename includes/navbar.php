@@ -110,6 +110,16 @@ function pagePath($pageTitle, $breadcrumb)
                     ],
                 ],
             ],
+            [
+                "menu_title" => "Settings",
+                "icon" => "fas fa-cogs",
+                "pages" => [
+                    [
+                        "title" => "Profile",
+                        "url" => "profile.php",
+                    ],
+                ],
+            ]
         ];
         ?>
 
