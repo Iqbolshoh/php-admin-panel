@@ -109,7 +109,6 @@ function pagePath($pageTitle, $breadcrumb)
                         "menu" => "Dashboard",
                         "title" => "Dashboard",
                         "url" => "index.php",
-                        "active_pages" => ["index.php"],
                     ],
                 ],
             ],
@@ -123,7 +122,6 @@ function pagePath($pageTitle, $breadcrumb)
                         "menu" => "Alert",
                         "title" => "Alert",
                         "url" => "alert.php",
-                        "active_pages" => ["alert.php"],
                     ],
                 ],
             ],
@@ -151,7 +149,7 @@ function pagePath($pageTitle, $breadcrumb)
                         <?php if (!empty($item['sub_menu'])): ?>
                             <ul class="nav nav-treeview">
                                 <?php foreach ($item['sub_menu'] as $sub_item): ?>
-                                    <?php $sub_active = in_array($current_page, $sub_item['active_pages']) ? 'active' : ''; ?>
+                                    <?php $sub_active = $current_page === $sub_item['url'] ? 'active' : ''; ?>
                                     <li class="nav-item">
                                         <a href="<?= $sub_item['url'] ?>" class="nav-link <?= $sub_active ?>">
                                             <i class="far fa-circle nav-icon"></i>
@@ -166,6 +164,7 @@ function pagePath($pageTitle, $breadcrumb)
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
 
     </div>
     <!-- /.sidebar -->
