@@ -102,7 +102,6 @@ function pagePath($pageTitle, $breadcrumb)
             [
                 "menu" => "Dashboard",
                 "title" => "Dashboard",
-                "url" => "./",
                 "icon" => "fas fa-tachometer-alt",
                 "active_pages" => ["index.php"],
                 "sub_menu" => [
@@ -117,7 +116,6 @@ function pagePath($pageTitle, $breadcrumb)
             [
                 "menu" => "Alerts",
                 "title" => "Alerts",
-                "url" => "#",
                 "icon" => "far fa-plus-square",
                 "active_pages" => ["alert.php"],
                 "sub_menu" => [
