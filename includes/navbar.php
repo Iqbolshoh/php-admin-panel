@@ -29,8 +29,6 @@ function pagePath($pageTitle, $breadcrumb)
 }
 ?>
 
-<?php $current_page = basename($_SERVER['SCRIPT_NAME']) ?>
-
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -101,23 +99,58 @@ function pagePath($pageTitle, $breadcrumb)
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item has-treeview <?= in_array($current_page, ['index.php']) ? 'menu-open' : ''; ?>">
-                    <a class="nav-link <?= in_array($current_page, ['index.php']) ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="./" class="nav-link <?= ($current_page === 'index.php') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <?php $current_page = basename($_SERVER['SCRIPT_NAME']) ?>
+                <?php
+
+                $menu = [
+                    [
+                        "menu" => "Dashboard",
+                        "title" => "Dashboard",
+                        "url" => "./",
+                        "icon" => "fas fa-tachometer-alt",
+                        "active_pages" => ["index.php"],
+                        "sub_menu" => [
+                            [
+                                "menu" => "Dashboard",
+                                "title" => "Dashboard",
+                                "url" => "./",
+                                "icon" => "far fa-circle",
+                                "active_pages" => ["index.php"],
+                            ],
+                        ],
+                    ],
+                ];
+
+                foreach ($menu as $item) {
+                    $is_menu_open = in_array($current_page, $item['active_pages']) ? 'menu-open' : '';
+                    $is_active = in_array($current_page, $item['active_pages']) ? 'active' : '';
+
+                    echo "<li class='nav-item has-treeview {$is_menu_open}'>";
+                    echo "<a class='nav-link {$is_active}'>";
+                    echo "<i class='nav-icon {$item['icon']}'></i>";
+                    echo "<p>";
+                    echo "{$item['title']}";
+                    echo "<i class='right fas fa-angle-left'></i>";
+                    echo "</p>";
+                    echo "</a>";
+
+                    if (!empty($item['sub_menu'])) {
+                        echo "<ul class='nav nav-treeview'>";
+                        foreach ($item['sub_menu'] as $sub_item) {
+                            $sub_active = in_array($current_page, $sub_item['active_pages']) ? 'active' : '';
+                            echo "<li class='nav-item'>";
+                            echo "<a href='{$sub_item['url']}' class='nav-link {$sub_active}'>";
+                            echo "<i class='{$sub_item['icon']} nav-icon'></i>";
+                            echo "<p>{$sub_item['title']}</p>";
+                            echo "</a>";
+                            echo "</li>";
+                        }
+                        echo "</ul>";
+                    }
+
+                    echo "</li>";
+                }
+                ?>
 
                 <li class="nav-header">EXAMPLES</li>
 
