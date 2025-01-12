@@ -103,21 +103,13 @@ function pagePath($pageTitle, $breadcrumb)
                 "menu" => "Dashboard",
                 "title" => "Dashboard",
                 "icon" => "fas fa-tachometer-alt",
-                "active_pages" => ["index.php"],
+                "active_pages" => ["index.php", "alert.php"],
                 "sub_menu" => [
                     [
                         "menu" => "Dashboard",
                         "title" => "Dashboard",
                         "url" => "index.php",
                     ],
-                ],
-            ],
-            [
-                "menu" => "Alerts",
-                "title" => "Alerts",
-                "icon" => "far fa-plus-square",
-                "active_pages" => ["alert.php"],
-                "sub_menu" => [
                     [
                         "menu" => "Alert",
                         "title" => "Alert",
@@ -125,6 +117,7 @@ function pagePath($pageTitle, $breadcrumb)
                     ],
                 ],
             ],
+
         ];
         ?>
 
