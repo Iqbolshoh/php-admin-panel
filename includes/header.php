@@ -60,38 +60,6 @@
         </div>
 
         <!-- Sidebar menu -->
-        <?php
-        $currentPage = basename($_SERVER['SCRIPT_NAME']);
-
-        // Menu structure
-        $menuItems = [
-            [
-                "menuTitle" => "Menu",
-                "icon" => "fas fa-home",
-                "pages" => [
-                    [
-                        "title" => "Home",
-                        "url" => "index.php",
-                    ],
-                    [
-                        "title" => "Alerts",
-                        "url" => "alerts.php",
-                    ],
-                ],
-            ],
-            // [
-            //     "menuTitle" => "Settings",
-            //     "icon" => "fas fa-cogs",
-            //     "pages" => [
-            //         [
-            //             "title" => "Profile",
-            //             "url" => "profile.php",
-            //         ],
-            //     ],
-            // ]
-        ];
-        ?>
-
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <?php foreach ($menuItems as $menuItem): ?>
