@@ -1,7 +1,6 @@
+<?php $currentPage = basename($_SERVER['SCRIPT_NAME']); ?>
+<!--  Sidebar-Menu structure -->
 <?php
-$currentPage = basename($_SERVER['SCRIPT_NAME']);
-
-// Sidebar-Menu structure
 $menuItems = [
     [
         "menuTitle" => "Menu",
