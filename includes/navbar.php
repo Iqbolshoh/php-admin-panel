@@ -119,7 +119,6 @@ function pagePath($pageTitle, $breadcrumb)
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <?php foreach ($menu as $item): ?>
                     <?php
-                    // Checking if any of the pages is the current one
                     $is_menu_open = false;
                     $is_active = false;
                     foreach ($item['pages'] as $page) {
