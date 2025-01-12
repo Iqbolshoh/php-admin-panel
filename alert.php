@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Alerts</title>
+  <title>Admin Panel | Alerts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php include 'includes/css.php' ?>
 </head>
