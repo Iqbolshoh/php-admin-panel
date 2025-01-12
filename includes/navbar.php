@@ -105,8 +105,8 @@ function pagePath($pageTitle, $breadcrumb)
                         "url" => "index.php",
                     ],
                     [
-                        "title" => "Alert",
-                        "url" => "alert.php",
+                        "title" => "Alerts",
+                        "url" => "alerts.php",
                     ],
                 ],
             ],
