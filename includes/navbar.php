@@ -55,7 +55,6 @@ function pagePath($pageTitle, $breadcrumb)
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="#messages">
                 <i class="far fa-comments"></i>
@@ -82,7 +81,6 @@ function pagePath($pageTitle, $breadcrumb)
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="./src/images/default.png" class="img-circle elevation-2" alt="User Image">
@@ -92,6 +90,7 @@ function pagePath($pageTitle, $breadcrumb)
             </div>
         </div>
 
+        <!-- Sidebar Menu -->
         <?php
         $current_page = basename($_SERVER['SCRIPT_NAME']);
 
@@ -123,7 +122,6 @@ function pagePath($pageTitle, $breadcrumb)
         ];
         ?>
 
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <?php foreach ($menu as $item): ?>
@@ -139,7 +137,7 @@ function pagePath($pageTitle, $breadcrumb)
                     }
                     ?>
                     <li class="nav-item has-treeview <?= $is_menu_open ? 'menu-open' : '' ?>">
-                        <a href="#" class="nav-link <?= $is_active ? 'active' : '' ?>">
+                        <a class="nav-link <?= $is_active ? 'active' : '' ?>">
                             <i class="nav-icon <?= $item['icon'] ?>"></i>
                             <p>
                                 <?= $item['menu_title'] ?>
@@ -166,8 +164,6 @@ function pagePath($pageTitle, $breadcrumb)
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
-
     </div>
     <!-- /.sidebar -->
-
 </aside>
