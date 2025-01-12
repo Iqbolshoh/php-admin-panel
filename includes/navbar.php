@@ -139,7 +139,7 @@ function pagePath($pageTitle, $breadcrumb)
                     $is_active = $current_page === basename($item['url']) ? 'active' : '';
                     ?>
                     <li class="nav-item has-treeview <?= $is_menu_open ?>">
-                        <a href="<?= $item['url'] ?>" class="nav-link <?= $is_active ?>">
+                        <a class="nav-link <?= $is_active ?>">
                             <i class="nav-icon <?= $item['icon'] ?>"></i>
                             <p>
                                 <?= $item['title'] ?>
