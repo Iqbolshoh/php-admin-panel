@@ -107,7 +107,7 @@ function pagePath($pageTitle, $breadcrumb)
                 "sub_menu" => [
                     [
                         "title" => "Dashboard",
-                        "url" => "./",
+                        "url" => "index.php",
                     ],
                     [
                         "title" => "Alert",
