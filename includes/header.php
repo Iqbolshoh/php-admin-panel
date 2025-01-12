@@ -147,16 +147,16 @@ function renderHeader($pageTitle, $breadcrumbItems)
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">
-                        <?php echo $pageTitle; ?>
+                        <?= $pageTitle; ?>
                     </h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <?php foreach ($breadcrumbItems as $item): ?>
                             <?php if ($item['url'] === '#'): ?>
-                                <li class="breadcrumb-item active"><?php echo $item['title']; ?></li>
+                                <li class="breadcrumb-item active"><?= $item['title']; ?></li>
                             <?php else: ?>
-                                <li class="breadcrumb-item"><a href="<?php echo $item['url']; ?>"><?php echo $item['title']; ?></a>
+                                <li class="breadcrumb-item"><a href="<?= $item['url']; ?>"><?= $item['title']; ?></a>
                                 </li>
                             <?php endif; ?>
                         <?php endforeach; ?>
