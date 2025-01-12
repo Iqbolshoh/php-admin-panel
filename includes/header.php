@@ -1,3 +1,35 @@
+<?php
+$currentPage = basename($_SERVER['SCRIPT_NAME']);
+
+// Menu structure
+$menuItems = [
+    [
+        "menuTitle" => "Menu",
+        "icon" => "fas fa-home",
+        "pages" => [
+            [
+                "title" => "Home",
+                "url" => "index.php",
+            ],
+            [
+                "title" => "Alerts",
+                "url" => "alerts.php",
+            ],
+        ],
+    ],
+    // [
+    //     "menuTitle" => "Settings",
+    //     "icon" => "fas fa-cogs",
+    //     "pages" => [
+    //         [
+    //             "title" => "Profile",
+    //             "url" => "profile.php",
+    //         ],
+    //     ],
+    // ]
+];
+?>
+
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left side of the navbar -->
     <ul class="navbar-nav">
