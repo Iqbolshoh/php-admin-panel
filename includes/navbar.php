@@ -1,6 +1,5 @@
 <?php
-// Function to display page title and breadcrumb navigation
-function displayPageHeader($pageTitle, $breadcrumbItems)
+function renderHeader($pageTitle, $breadcrumbItems)
 {
     ?>
     <div class="content-header">

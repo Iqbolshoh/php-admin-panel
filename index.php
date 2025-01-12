@@ -20,7 +20,7 @@
         ["title" => "Home", "url" => "./"],
         ["title" => "Dashboard", "url" => "#"],
       );
-      pagePath('Dashboard', $arr);
+      displayPageHeader('Dashboard', $arr);
       ?>
 
       <section class="content">
