@@ -22,6 +22,36 @@ To run this project locally, follow these steps:
 
 To use the application, open your browser and navigate to `http://localhost/php-admin-panel`. This will load the main page of the application.
 
+## Adding Sidebar Menu Items
+
+The $menuItems array defines the sidebar menu. Each item includes:
+
+menuTitle: The section name (e.g., "Menu").
+icon: The section icon (e.g., "fas fa-home").
+pages: Subpages with "title" (name) and "url" (link).
+Example:
+To add or update:
+
+```php
+$menuItems = [
+    [
+        "menuTitle" => "Menu",
+        "icon" => "fas fa-home",
+        "pages" => [
+            ["title" => "Home", "url" => "index.php"],
+            ["title" => "Alerts", "url" => "alerts.php"],
+        ],
+    ],
+    [
+        "menuTitle" => "Settings",
+        "icon" => "fas fa-cogs",
+        "pages" => [
+            ["title" => "Profile", "url" => "profile.php"],
+        ],
+    ],
+];
+```
+
 ## Technologies Used
 
 <div style="display: flex; flex-wrap: wrap; gap: 5px;">
