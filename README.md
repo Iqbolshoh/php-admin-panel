@@ -38,17 +38,26 @@ $menuItems = [
         "menuTitle" => "Menu",
         "icon" => "fas fa-home",
         "pages" => [
-            ["title" => "Home", "url" => "index.php"],
-            ["title" => "Alerts", "url" => "alerts.php"],
+            [
+                "title" => "Home",
+                "url" => "index.php",
+            ],
+            [
+                "title" => "Alerts",
+                "url" => "alerts.php",
+            ],
         ],
     ],
     [
         "menuTitle" => "Settings",
         "icon" => "fas fa-cogs",
         "pages" => [
-            ["title" => "Profile", "url" => "profile.php"],
+            [
+                "title" => "Profile",
+                "url" => "profile.php",
+            ],
         ],
-    ],
+    ]
 ];
 ```
 
