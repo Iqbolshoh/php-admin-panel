@@ -29,6 +29,21 @@ $menuItems = [
 ];
 ?>
 
+<?php
+$breadcrumbItems = [];
+
+// Breadcrumbni yaratish
+foreach ($menuItems as $menuItem) {
+    foreach ($menuItem['pages'] as $page) {
+        if ($currentPage === $page['url']) {
+            $breadcrumbItems[] = ["title" => $menuItem['menuTitle'], "url" => "#"];
+            $breadcrumbItems[] = ["title" => $page['title'], "url" => $page['url']];
+            break;
+        }
+    }
+}
+?>
+
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left side of the navbar -->
     <ul class="navbar-nav">
@@ -70,6 +85,31 @@ $menuItems = [
         </li>
     </ul>
 </nav>
+
+<!-- Breadcrumb HTML -->
+<div class="content-wrapper"
+    style="max-height: 200px !important; padding: 20px; overflow-y: auto; background-color: #f4f6f9;">
+    <div class="content-header">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">
+                    <?= ucfirst(str_replace(".php", "", $currentPage)) ?>
+                </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <?php foreach ($breadcrumbItems as $item): ?>
+                        <?php if ($item['url'] === '#'): ?>
+                            <li class="breadcrumb-item active"><?= $item['title']; ?></li>
+                        <?php else: ?>
+                            <li class="breadcrumb-item"><a href="<?= $item['url']; ?>"><?= $item['title']; ?></a></li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Logo -->
@@ -136,34 +176,3 @@ $menuItems = [
     </div>
     <!-- /.sidebar -->
 </aside>
-
-<?php
-function renderHeader($pageTitle, $breadcrumbItems)
-{
-    ?>
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">
-                        <?= $pageTitle; ?>
-                    </h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <?php foreach ($breadcrumbItems as $item): ?>
-                            <?php if ($item['url'] === '#'): ?>
-                                <li class="breadcrumb-item active"><?= $item['title']; ?></li>
-                            <?php else: ?>
-                                <li class="breadcrumb-item"><a href="<?= $item['url']; ?>"><?= $item['title']; ?></a>
-                                </li>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php
-}
-?>
