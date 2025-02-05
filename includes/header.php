@@ -31,8 +31,6 @@ $menuItems = [
 
 <?php
 $breadcrumbItems = [];
-
-// Breadcrumbni yaratish
 foreach ($menuItems as $menuItem) {
     foreach ($menuItem['pages'] as $page) {
         if ($currentPage === $page['url']) {
@@ -87,8 +85,7 @@ foreach ($menuItems as $menuItem) {
 </nav>
 
 <!-- Breadcrumb HTML -->
-<div class="content-wrapper"
-    style="max-height: 200px !important; padding: 20px; overflow-y: auto; background-color: #f4f6f9;">
+<div class="main-header" style="padding: 0px 10px; background-color: #f4f6f9;border-bottom: none !important;">
     <div class="content-header">
         <div class="row mb-2">
             <div class="col-sm-6">
