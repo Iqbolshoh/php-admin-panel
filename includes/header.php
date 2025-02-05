@@ -136,6 +136,8 @@ foreach ($menuItems as $menuItem) {
         </nav>
     </div>
 </aside>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function logout() {
         Swal.fire({
