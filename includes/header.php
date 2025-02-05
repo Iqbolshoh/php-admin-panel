@@ -1,5 +1,7 @@
-<?php $currentPage = basename($_SERVER['SCRIPT_NAME']); ?>
 <?php
+$currentPage = basename($_SERVER['SCRIPT_NAME']);
+$pageTitle = ""; // Default sarlavha
+
 // Sidebar-Menu structure -->
 $menuItems = [
     [
@@ -16,26 +18,15 @@ $menuItems = [
             ],
         ],
     ],
-    // [
-    //     "menuTitle" => "Settings",
-    //     "icon" => "fas fa-cogs",
-    //     "pages" => [
-    //         [
-    //             "title" => "Profile",
-    //             "url" => "profile.php",
-    //         ],
-    //     ],
-    // ]
 ];
-?>
 
-<?php
 $breadcrumbItems = [];
 foreach ($menuItems as $menuItem) {
     foreach ($menuItem['pages'] as $page) {
         if ($currentPage === $page['url']) {
             $breadcrumbItems[] = ["title" => $menuItem['menuTitle'], "url" => "#"];
             $breadcrumbItems[] = ["title" => $page['title'], "url" => $page['url']];
+            $pageTitle = $page['title']; // Sahifa nomini olish
             break;
         }
     }
@@ -84,13 +75,12 @@ foreach ($menuItems as $menuItem) {
     </ul>
 </nav>
 
-<!-- Breadcrumb HTML -->
-<div class="main-header" style="padding: 0px 10px; background-color: #f4f6f9;border-bottom: none !important;">
+<div class="main-header" style="padding: 0px 10px; background-color: #f4f6f9; border-bottom: none !important;">
     <div class="content-header">
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">
-                    <?= ucfirst(str_replace(".php", "", $currentPage)) ?>
+                    <?= $pageTitle ?>
                 </h1>
             </div>
             <div class="col-sm-6">
