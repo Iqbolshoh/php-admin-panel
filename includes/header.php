@@ -35,6 +35,9 @@ foreach ($menuItems as $menuItem) {
         <li class="nav-item d-none d-sm-inline-block">
             <a href="./" class="nav-link">Home</a>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a onclick="logout()" class="nav-link">Logout</a>
+        </li>
     </ul>
     <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
