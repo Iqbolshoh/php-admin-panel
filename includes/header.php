@@ -1,8 +1,7 @@
 <?php
 $currentPage = basename($_SERVER['SCRIPT_NAME']);
-$pageTitle = ""; // Default sarlavha
+$pageTitle = ""; 
 
-// Sidebar-Menu structure -->
 $menuItems = [
     [
         "menuTitle" => "Menu",
@@ -26,7 +25,7 @@ foreach ($menuItems as $menuItem) {
         if ($currentPage === $page['url']) {
             $breadcrumbItems[] = ["title" => $menuItem['menuTitle'], "url" => "#"];
             $breadcrumbItems[] = ["title" => $page['title'], "url" => $page['url']];
-            $pageTitle = $page['title']; // Sahifa nomini olish
+            $pageTitle = $page['title'];
             break;
         }
     }
