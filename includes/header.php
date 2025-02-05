@@ -1,20 +1,14 @@
 <?php
 $currentPage = basename($_SERVER['SCRIPT_NAME']);
-$pageTitle = ""; 
+$pageTitle = "";
 
 $menuItems = [
     [
         "menuTitle" => "Menu",
         "icon" => "fas fa-home",
         "pages" => [
-            [
-                "title" => "Home",
-                "url" => "index.php",
-            ],
-            [
-                "title" => "Alerts",
-                "url" => "alerts.php",
-            ],
+            ["title" => "Home", "url" => "index.php"],
+            ["title" => "Alerts", "url" => "alerts.php"],
         ],
     ],
 ];
@@ -33,7 +27,6 @@ foreach ($menuItems as $menuItem) {
 ?>
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left side of the navbar -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
@@ -42,21 +35,14 @@ foreach ($menuItems as $menuItem) {
             <a href="./" class="nav-link">Home</a>
         </li>
     </ul>
-
-    <!-- Search form -->
     <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"
-                name="search">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" name="search">
             <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
+                <button class="btn btn-navbar" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </form>
-
-    <!-- Right side of the navbar -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a class="nav-link" href="#messages">
@@ -64,7 +50,6 @@ foreach ($menuItems as $menuItem) {
                 <span class="badge badge-danger navbar-badge">2</span>
             </a>
         </li>
-        <!-- Notifications dropdown -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="#notifications">
                 <i class="far fa-bell"></i>
@@ -78,18 +63,14 @@ foreach ($menuItems as $menuItem) {
     <div class="content-header">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">
-                    <?= $pageTitle ?>
-                </h1>
+                <h1 class="m-0 text-dark"> <?= $pageTitle ?> </h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <?php foreach ($breadcrumbItems as $item): ?>
-                        <?php if ($item['url'] === '#'): ?>
-                            <li class="breadcrumb-item active"><?= $item['title']; ?></li>
-                        <?php else: ?>
-                            <li class="breadcrumb-item"><a href="<?= $item['url']; ?>"><?= $item['title']; ?></a></li>
-                        <?php endif; ?>
+                        <li class="breadcrumb-item <?= $item['url'] === '#' ? 'active' : '' ?>">
+                            <?= $item['url'] === '#' ? $item['title'] : "<a href='{$item['url']}'>{$item['title']}</a>" ?>
+                        </li>
                     <?php endforeach; ?>
                 </ol>
             </div>
@@ -98,14 +79,10 @@ foreach ($menuItems as $menuItem) {
 </div>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Logo -->
     <a href="./" class="brand-link">
-        <img src="./src/images/logo.png" alt="Admin Panel Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
+        <img src="./src/images/logo.png" alt="Admin Panel Logo" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">Admin Panel</span>
     </a>
-
-    <!-- Sidebar -->
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
@@ -115,14 +92,11 @@ foreach ($menuItems as $menuItem) {
                 <a href="./" class="d-block">Iqbolshoh Ilhomjonov</a>
             </div>
         </div>
-
-        <!-- Sidebar menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <?php foreach ($menuItems as $menuItem): ?>
-                    <?php
+                    <?php $isMenuOpen = false;
                     $isActive = false;
-                    $isMenuOpen = false;
                     foreach ($menuItem['pages'] as $page) {
                         if ($currentPage === $page['url']) {
                             $isActive = true;
@@ -136,9 +110,7 @@ foreach ($menuItems as $menuItem) {
                             <i class="nav-icon <?= $menuItem['icon'] ?>"></i>
                             <p>
                                 <?= $menuItem['menuTitle'] ?>
-                                <?php if (!empty($menuItem['pages'])): ?>
-                                    <i class="right fas fa-angle-left"></i>
-                                <?php endif; ?>
+                                <?= !empty($menuItem['pages']) ? '<i class="right fas fa-angle-left"></i>' : '' ?>
                             </p>
                         </a>
                         <?php if (!empty($menuItem['pages'])): ?>
@@ -158,7 +130,5 @@ foreach ($menuItems as $menuItem) {
                 <?php endforeach; ?>
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
 </aside>
