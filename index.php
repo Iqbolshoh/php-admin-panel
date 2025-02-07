@@ -13,7 +13,7 @@
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-    <?php include 'includes/header.php' ?>
+    <?php include './header.php' ?>
     <div class="content-wrapper">
 
       <section class="content">
@@ -86,7 +86,7 @@
       </section>
     </div>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include './footer.php'; ?>
   </div>
 
   <!-- jQuery -->
