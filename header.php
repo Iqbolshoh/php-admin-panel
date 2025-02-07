@@ -10,13 +10,13 @@ $menuItems = [
             ["title" => "Home", "url" => "index.php"]
         ],
     ],
-    [
-        "menuTitle" => "Settings",
-        "icon" => "fas fa-cogs",
-        "pages" => [
-            ["title" => "Profile", "url" => "profile.php"],
-        ]
-    ]
+    // [
+    //     "menuTitle" => "Settings",
+    //     "icon" => "fas fa-cogs",
+    //     "pages" => [
+    //         ["title" => "Profile", "url" => "profile.php"],
+    //     ]
+    // ]
 ];
 
 $breadcrumbItems = [];
