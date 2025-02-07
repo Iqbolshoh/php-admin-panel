@@ -7,8 +7,7 @@ $menuItems = [
         "menuTitle" => "Menu",
         "icon" => "fas fa-home",
         "pages" => [
-            ["title" => "Home", "url" => "index.php"],
-            ["title" => "Alerts", "url" => "alerts.php"],
+            ["title" => "Home", "url" => "index.php"]
         ],
     ],
 ];
