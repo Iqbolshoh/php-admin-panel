@@ -1,54 +1,44 @@
 <?php
 $currentPage = basename($_SERVER['SCRIPT_NAME']);
-$pageTitle = "";
-$breadcrumbItems = [];
 
 $menuItems = [
     [
         "menuTitle" => "Menu",
         "icon" => "fas fa-home",
         "pages" => [
-            ["title" => "Home", "url" => "index.php"],
-            ["title" => "About", "url" => "about.php"]
+            ["title" => "Home", "url" => "index.php"]
         ],
     ],
-    [
-        "menuTitle" => "Settings",
-        "icon" => "fas fa-cogs",
-        "pages" => [
-            ["title" => "Profile", "url" => "profile.php"],
-        ]
-    ]
+    // [
+    //     "menuTitle" => "Settings",
+    //     "icon" => "fas fa-cogs",
+    //     "pages" => [
+    //         ["title" => "Profile", "url" => "profile.php"],
+    //     ]
+    // ]
 ];
 
-function getActivePageInfo($menuItems, $currentPage)
-{
-    foreach ($menuItems as $menuItem) {
-        foreach ($menuItem['pages'] as $page) {
-            if ($currentPage === $page['url']) {
-                return [
-                    "breadcrumbItems" => [
-                        ["title" => $menuItem['menuTitle'], "url" => "#"],
-                        ["title" => $page['title'], "url" => $page['url']]
-                    ],
-                    "pageTitle" => $page['title'],
-                    "activeMenu" => $menuItem,
-                    "activePage" => $page
-                ];
-            }
+$activePageInfo = array_reduce($menuItems, function ($carry, $menuItem) use ($currentPage) {
+    foreach ($menuItem['pages'] as $page) {
+        if ($currentPage === $page['url']) {
+            return [
+                "breadcrumbItems" => [
+                    ["title" => $menuItem['menuTitle'], "url" => "#"],
+                    ["title" => $page['title'], "url" => $page['url']]
+                ],
+                "pageTitle" => $page['title'],
+                "activeMenu" => $menuItem,
+                "activePage" => $page
+            ];
         }
     }
-    return null;
-}
+    return $carry;
+}, null);
 
-$activePageInfo = getActivePageInfo($menuItems, $currentPage);
-
-if ($activePageInfo) {
-    $breadcrumbItems = $activePageInfo['breadcrumbItems'];
-    $pageTitle = $activePageInfo['pageTitle'];
-    $activeMenu = $activePageInfo['activeMenu'];
-    $activePage = $activePageInfo['activePage'];
-}
+$breadcrumbItems = $activePageInfo['breadcrumbItems'] ?? [];
+$pageTitle = $activePageInfo['pageTitle'] ?? '';
+$activeMenu = $activePageInfo['activeMenu'] ?? null;
+$activePage = $activePageInfo['activePage'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -57,19 +47,16 @@ if ($activePageInfo) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= ($pageTitle) ?></title>
+    <title><?= $pageTitle ?></title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="./" class="nav-link">Home</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" data-widget="pushmenu" role="button"><i
+                        class="fas fa-bars"></i></a></li>
+            <li class="nav-item d-none d-sm-inline-block"><a href="./" class="nav-link">Home</a></li>
         </ul>
         <form class="form-inline ml-3">
             <div class="input-group input-group-sm">
@@ -80,18 +67,10 @@ if ($activePageInfo) {
             </div>
         </form>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="#messages">
-                    <i class="far fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">2</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="#notifications">
-                    <i class="far fa-bell"></i>
-                    <span class="badge badge-warning navbar-badge">5</span>
-                </a>
-            </li>
+            <li class="nav-item dropdown"><a class="nav-link" href="#messages"><i class="far fa-comments"></i><span
+                        class="badge badge-danger navbar-badge">2</span></a></li>
+            <li class="nav-item dropdown"><a class="nav-link" href="#notifications"><i class="far fa-bell"></i><span
+                        class="badge badge-warning navbar-badge">5</span></a></li>
         </ul>
     </nav>
 
@@ -99,13 +78,13 @@ if ($activePageInfo) {
         <div class="content-header">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"><?= ($pageTitle) ?></h1>
+                    <h1 class="m-0 text-dark"><?= $pageTitle ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <?php foreach ($breadcrumbItems as $item): ?>
                             <li class="breadcrumb-item <?= $item['url'] === '#' ? 'active' : '' ?>">
-                                <?= $item['url'] === '#' ? ($item['title']) : "<a href='" . ($item['url']) . "'>" . ($item['title']) . "</a>" ?>
+                                <?= $item['url'] === '#' ? $item['title'] : "<a href='{$item['url']}'>{$item['title']}</a>" ?>
                             </li>
                         <?php endforeach; ?>
                     </ol>
@@ -121,34 +100,27 @@ if ($activePageInfo) {
         </a>
         <div class="sidebar">
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="./src/images/default.png" class="img-circle elevation-2" alt="User Image">
+                <div class="image"><img src="./src/images/default.png" class="img-circle elevation-2" alt="User Image">
                 </div>
-                <div class="info">
-                    <a href="./" class="d-block">Iqbolshoh Ilhomjonov</a>
-                </div>
+                <div class="info"><a href="./" class="d-block">Iqbolshoh Ilhomjonov</a></div>
             </div>
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <?php foreach ($menuItems as $menuItem): ?>
-                        <li
-                            class="nav-item has-treeview <?= isset($activeMenu) && $menuItem === $activeMenu ? 'menu-open' : '' ?>">
-                            <a class="nav-link <?= isset($activeMenu) && $menuItem === $activeMenu ? 'active' : '' ?>"
-                                href="#">
-                                <i class="nav-icon <?= ($menuItem['icon']) ?>"></i>
-                                <p>
-                                    <?= ($menuItem['menuTitle']) ?>
-                                    <?= !empty($menuItem['pages']) ? '<i class="right fas fa-angle-left"></i>' : '' ?>
-                                </p>
+                        <li class="nav-item has-treeview <?= $menuItem === $activeMenu ? 'menu-open' : '' ?>">
+                            <a class="nav-link <?= $menuItem === $activeMenu ? 'active' : '' ?>" href="#">
+                                <i class="nav-icon <?= $menuItem['icon'] ?>"></i>
+                                <p><?= $menuItem['menuTitle'] ?>
+                                    <?= !empty($menuItem['pages']) ? '<i class="right fas fa-angle-left"></i>' : '' ?></p>
                             </a>
                             <?php if (!empty($menuItem['pages'])): ?>
                                 <ul class="nav nav-treeview">
                                     <?php foreach ($menuItem['pages'] as $page): ?>
                                         <li class="nav-item">
-                                            <a href="<?= ($page['url']) ?>"
-                                                class="nav-link <?= isset($activePage) && $page === $activePage ? 'active' : '' ?>">
+                                            <a href="<?= $page['url'] ?>"
+                                                class="nav-link <?= $page === $activePage ? 'active' : '' ?>">
                                                 <i class="far fa-circle nav-icon"></i>
-                                                <p><?= ($page['title']) ?></p>
+                                                <p><?= $page['title'] ?></p>
                                             </a>
                                         </li>
                                     <?php endforeach; ?>
