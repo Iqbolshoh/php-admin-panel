@@ -25,14 +25,18 @@ $activeMenu = null;
 $activePage = null;
 
 foreach ($menuItems as &$menuItem) {
+    if ($activePage)
+        break;
     foreach ($menuItem['pages'] as &$page) {
         if ($currentPage === $page['url']) {
-            $breadcrumbItems[] = ["title" => $menuItem['menuTitle'], "url" => "#"];
-            $breadcrumbItems[] = ["title" => $page['title'], "url" => $page['url']];
+            $breadcrumbItems = [
+                ["title" => $menuItem['menuTitle'], "url" => "#"],
+                ["title" => $page['title'], "url" => $page['url']]
+            ];
             $pageTitle = $page['title'];
             $activeMenu = &$menuItem;
             $activePage = &$page;
-            break 2;
+            break;
         }
     }
 }
