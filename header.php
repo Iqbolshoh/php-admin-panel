@@ -10,13 +10,13 @@ $menuItems = [
             ["title" => "Home", "url" => "index.php"]
         ],
     ],
-    [
-        "menuTitle" => "Logout",
-        "icon" => "fas fa-sign-out-alt",
-        "pages" => [
-            ["title" => "Logout", "url" => "javascript:void(0)", "onclick" => "logout()"]
-        ],
-    ],
+    // [
+    //     "menuTitle" => "Settings",
+    //     "icon" => "fas fa-cogs",
+    //     "pages" => [
+    //         ["title" => "Profile", "url" => "profile.php"],
+    //     ]
+    // ]
 ];
 
 $breadcrumbItems = [];
@@ -36,7 +36,6 @@ foreach ($menuItems as $menuItem) {
     <title><?= $pageTitle ?></title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -46,11 +45,51 @@ foreach ($menuItems as $menuItem) {
             <a href="./" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="javascript:void(0)" onclick="logout()" class="nav-link"><i class="fas fa-sign-out-alt"></i>
-                Logout</a>
+            <a onclick="logout()" class="nav-link">Logout</a>
+        </li>
+    </ul>
+    <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" name="search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#messages">
+                <i class="far fa-comments"></i>
+                <span class="badge badge-danger navbar-badge">2</span>
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#notifications">
+                <i class="far fa-bell"></i>
+                <span class="badge badge-warning navbar-badge">5</span>
+            </a>
         </li>
     </ul>
 </nav>
+
+<div class="main-header" style="padding: 0px 10px; background-color: #f4f6f9; border-bottom: none !important;">
+    <div class="content-header">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark"> <?= $pageTitle ?> </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <?php foreach ($breadcrumbItems as $item): ?>
+                        <li class="breadcrumb-item <?= $item['url'] === '#' ? 'active' : '' ?>">
+                            <?= $item['url'] === '#' ? $item['title'] : "<a href='{$item['url']}'>{$item['title']}</a>" ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="./" class="brand-link">
@@ -69,12 +108,37 @@ foreach ($menuItems as $menuItem) {
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <?php foreach ($menuItems as $menuItem): ?>
-                    <li class="nav-item">
-                        <a href="<?= $menuItem['pages'][0]['url'] ?>"
-                            onclick="<?= $menuItem['pages'][0]['onclick'] ?? '' ?>" class="nav-link">
+                    <?php $isMenuOpen = false;
+                    $isActive = false;
+                    foreach ($menuItem['pages'] as $page) {
+                        if ($currentPage === $page['url']) {
+                            $isActive = true;
+                            $isMenuOpen = true;
+                            break;
+                        }
+                    }
+                    ?>
+                    <li class="nav-item has-treeview <?= $isMenuOpen ? 'menu-open' : '' ?>">
+                        <a class="nav-link <?= $isActive ? 'active' : '' ?>">
                             <i class="nav-icon <?= $menuItem['icon'] ?>"></i>
-                            <p><?= $menuItem['menuTitle'] ?></p>
+                            <p>
+                                <?= $menuItem['menuTitle'] ?>
+                                <?= !empty($menuItem['pages']) ? '<i class="right fas fa-angle-left"></i>' : '' ?>
+                            </p>
                         </a>
+                        <?php if (!empty($menuItem['pages'])): ?>
+                            <ul class="nav nav-treeview">
+                                <?php foreach ($menuItem['pages'] as $page): ?>
+                                    <li class="nav-item">
+                                        <a href="<?= $page['url'] ?>"
+                                            class="nav-link <?= $currentPage === $page['url'] ? 'active' : '' ?>">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p><?= $page['title'] ?></p>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
