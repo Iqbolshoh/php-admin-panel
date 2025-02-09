@@ -1,6 +1,7 @@
 <?php
 $currentPage = basename($_SERVER['SCRIPT_NAME']);
 $pageTitle = "";
+$breadcrumbItems = [];
 
 $menuItems = [
     [
@@ -20,10 +21,6 @@ $menuItems = [
     ]
 ];
 
-$breadcrumbItems = [];
-$activeMenu = null;
-$activePage = null;
-
 foreach ($menuItems as &$menuItem) {
     foreach ($menuItem['pages'] as &$page) {
         if ($currentPage === $page['url']) {
@@ -32,8 +29,8 @@ foreach ($menuItems as &$menuItem) {
                 ["title" => $page['title'], "url" => $page['url']]
             ];
             $pageTitle = $page['title'];
-            $activeMenu = &$menuItem;
-            $activePage = &$page;
+            $activeMenu = $menuItem;
+            $activePage = $page;
             break 2;
         }
     }
@@ -89,7 +86,7 @@ unset($menuItem, $page);
         <div class="content-header">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"> <?= htmlspecialchars($pageTitle) ?> </h1>
+                    <h1 class="m-0 text-dark"><?= htmlspecialchars($pageTitle) ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -121,9 +118,10 @@ unset($menuItem, $page);
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <?php foreach ($menuItems as $menuItem): ?>
-                        <?php $isMenuOpen = isset($activeMenu) && $menuItem === $activeMenu; ?>
-                        <li class="nav-item has-treeview <?= $isMenuOpen ? 'menu-open' : '' ?>">
-                            <a class="nav-link <?= $isMenuOpen ? 'active' : '' ?>" href="#">
+                        <li
+                            class="nav-item has-treeview <?= isset($activeMenu) && $menuItem === $activeMenu ? 'menu-open' : '' ?>">
+                            <a class="nav-link <?= isset($activeMenu) && $menuItem === $activeMenu ? 'active' : '' ?>"
+                                href="#">
                                 <i class="nav-icon <?= htmlspecialchars($menuItem['icon']) ?>"></i>
                                 <p>
                                     <?= htmlspecialchars($menuItem['menuTitle']) ?>
@@ -145,7 +143,6 @@ unset($menuItem, $page);
                             <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
-
                     <li class="nav-item" onclick="logout()">
                         <a href="javascript:void(0);" class="nav-link">
                             <i class="nav-icon fas fa-sign-out-alt"></i>
