@@ -25,8 +25,6 @@ $activeMenu = null;
 $activePage = null;
 
 foreach ($menuItems as &$menuItem) {
-    if ($activePage)
-        break;
     foreach ($menuItem['pages'] as &$page) {
         if ($currentPage === $page['url']) {
             $breadcrumbItems = [
@@ -36,7 +34,7 @@ foreach ($menuItems as &$menuItem) {
             $pageTitle = $page['title'];
             $activeMenu = &$menuItem;
             $activePage = &$page;
-            break;
+            break 2;
         }
     }
 }
