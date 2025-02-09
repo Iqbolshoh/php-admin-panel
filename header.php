@@ -21,21 +21,34 @@ $menuItems = [
     ]
 ];
 
-foreach ($menuItems as &$menuItem) {
-    foreach ($menuItem['pages'] as &$page) {
-        if ($currentPage === $page['url']) {
-            $breadcrumbItems = [
-                ["title" => $menuItem['menuTitle'], "url" => "#"],
-                ["title" => $page['title'], "url" => $page['url']]
-            ];
-            $pageTitle = $page['title'];
-            $activeMenu = $menuItem;
-            $activePage = $page;
-            break 2;
+function getActivePageInfo($menuItems, $currentPage)
+{
+    foreach ($menuItems as $menuItem) {
+        foreach ($menuItem['pages'] as $page) {
+            if ($currentPage === $page['url']) {
+                return [
+                    "breadcrumbItems" => [
+                        ["title" => $menuItem['menuTitle'], "url" => "#"],
+                        ["title" => $page['title'], "url" => $page['url']]
+                    ],
+                    "pageTitle" => $page['title'],
+                    "activeMenu" => $menuItem,
+                    "activePage" => $page
+                ];
+            }
         }
     }
+    return null;
 }
-unset($menuItem, $page);
+
+$activePageInfo = getActivePageInfo($menuItems, $currentPage);
+
+if ($activePageInfo) {
+    $breadcrumbItems = $activePageInfo['breadcrumbItems'];
+    $pageTitle = $activePageInfo['pageTitle'];
+    $activeMenu = $activePageInfo['activeMenu'];
+    $activePage = $activePageInfo['activePage'];
+}
 ?>
 
 <!DOCTYPE html>
