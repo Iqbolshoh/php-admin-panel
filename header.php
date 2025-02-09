@@ -10,13 +10,13 @@ $menuItems = [
             ["title" => "Home", "url" => "index.php"]
         ],
     ],
-    // [
-    //     "menuTitle" => "Settings",
-    //     "icon" => "fas fa-cogs",
-    //     "pages" => [
-    //         ["title" => "Profile", "url" => "profile.php"],
-    //     ]
-    // ]
+    [
+        "menuTitle" => "Settings",
+        "icon" => "fas fa-cogs",
+        "pages" => [
+            ["title" => "Profile", "url" => "profile.php"],
+        ]
+    ]
 ];
 
 $breadcrumbItems = [];
@@ -134,17 +134,17 @@ foreach ($menuItems as $menuItem) {
                                         </a>
                                     </li>
                                 <?php endforeach; ?>
-
-                                <li class="nav-item" onclick="logout()">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <i class="nav-icon fas fa-sign-out-alt"></i>
-                                        <p>Logout</p>
-                                    </a>
-                                </li>
                             </ul>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
+
+                <li class="nav-item" onclick="logout()">
+                    <a href="javascript:void(0);" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
