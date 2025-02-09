@@ -7,7 +7,8 @@ $menuItems = [
         "menuTitle" => "Menu",
         "icon" => "fas fa-home",
         "pages" => [
-            ["title" => "Home", "url" => "index.php"]
+            ["title" => "Home", "url" => "index.php"],
+            ["title" => "About", "url" => "about.php"]
         ],
     ],
     [
@@ -20,20 +21,26 @@ $menuItems = [
 ];
 
 $breadcrumbItems = [];
-foreach ($menuItems as $menuItem) {
-    foreach ($menuItem['pages'] as $page) {
+$activeMenu = null;
+$activePage = null;
+
+foreach ($menuItems as &$menuItem) {
+    foreach ($menuItem['pages'] as &$page) {
         if ($currentPage === $page['url']) {
             $breadcrumbItems[] = ["title" => $menuItem['menuTitle'], "url" => "#"];
             $breadcrumbItems[] = ["title" => $page['title'], "url" => $page['url']];
             $pageTitle = $page['title'];
-            break;
+            $activeMenu = &$menuItem;
+            $activePage = &$page;
+            break 2;
         }
     }
 }
+unset($menuItem, $page);
 ?>
 
 <head>
-    <title><?= $pageTitle ?></title>
+    <title><?= htmlspecialchars($pageTitle) ?></title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -73,13 +80,13 @@ foreach ($menuItems as $menuItem) {
     <div class="content-header">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark"> <?= $pageTitle ?> </h1>
+                <h1 class="m-0 text-dark"> <?= htmlspecialchars($pageTitle) ?> </h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <?php foreach ($breadcrumbItems as $item): ?>
                         <li class="breadcrumb-item <?= $item['url'] === '#' ? 'active' : '' ?>">
-                            <?= $item['url'] === '#' ? $item['title'] : "<a href='{$item['url']}'>{$item['title']}</a>" ?>
+                            <?= $item['url'] === '#' ? htmlspecialchars($item['title']) : "<a href='" . htmlspecialchars($item['url']) . "'>" . htmlspecialchars($item['title']) . "</a>" ?>
                         </li>
                     <?php endforeach; ?>
                 </ol>
@@ -105,21 +112,12 @@ foreach ($menuItems as $menuItem) {
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <?php foreach ($menuItems as $menuItem): ?>
-                    <?php $isMenuOpen = false;
-                    $isActive = false;
-                    foreach ($menuItem['pages'] as $page) {
-                        if ($currentPage === $page['url']) {
-                            $isActive = true;
-                            $isMenuOpen = true;
-                            break;
-                        }
-                    }
-                    ?>
+                    <?php $isMenuOpen = isset($activeMenu) && $menuItem === $activeMenu; ?>
                     <li class="nav-item has-treeview <?= $isMenuOpen ? 'menu-open' : '' ?>">
-                        <a class="nav-link <?= $isActive ? 'active' : '' ?>">
-                            <i class="nav-icon <?= $menuItem['icon'] ?>"></i>
+                        <a class="nav-link <?= $isMenuOpen ? 'active' : '' ?>">
+                            <i class="nav-icon <?= htmlspecialchars($menuItem['icon']) ?>"></i>
                             <p>
-                                <?= $menuItem['menuTitle'] ?>
+                                <?= htmlspecialchars($menuItem['menuTitle']) ?>
                                 <?= !empty($menuItem['pages']) ? '<i class="right fas fa-angle-left"></i>' : '' ?>
                             </p>
                         </a>
@@ -127,10 +125,10 @@ foreach ($menuItems as $menuItem) {
                             <ul class="nav nav-treeview">
                                 <?php foreach ($menuItem['pages'] as $page): ?>
                                     <li class="nav-item">
-                                        <a href="<?= $page['url'] ?>"
-                                            class="nav-link <?= $currentPage === $page['url'] ? 'active' : '' ?>">
+                                        <a href="<?= htmlspecialchars($page['url']) ?>"
+                                            class="nav-link <?= isset($activePage) && $page === $activePage ? 'active' : '' ?>">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p><?= $page['title'] ?></p>
+                                            <p><?= htmlspecialchars($page['title']) ?></p>
                                         </a>
                                     </li>
                                 <?php endforeach; ?>
