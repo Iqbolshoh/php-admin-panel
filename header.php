@@ -57,7 +57,7 @@ if ($activePageInfo) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle) ?></title>
+    <title><?= ($pageTitle) ?></title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
@@ -99,13 +99,13 @@ if ($activePageInfo) {
         <div class="content-header">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"><?= htmlspecialchars($pageTitle) ?></h1>
+                    <h1 class="m-0 text-dark"><?= ($pageTitle) ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <?php foreach ($breadcrumbItems as $item): ?>
                             <li class="breadcrumb-item <?= $item['url'] === '#' ? 'active' : '' ?>">
-                                <?= $item['url'] === '#' ? htmlspecialchars($item['title']) : "<a href='" . htmlspecialchars($item['url']) . "'>" . htmlspecialchars($item['title']) . "</a>" ?>
+                                <?= $item['url'] === '#' ? ($item['title']) : "<a href='" . ($item['url']) . "'>" . ($item['title']) . "</a>" ?>
                             </li>
                         <?php endforeach; ?>
                     </ol>
@@ -135,9 +135,9 @@ if ($activePageInfo) {
                             class="nav-item has-treeview <?= isset($activeMenu) && $menuItem === $activeMenu ? 'menu-open' : '' ?>">
                             <a class="nav-link <?= isset($activeMenu) && $menuItem === $activeMenu ? 'active' : '' ?>"
                                 href="#">
-                                <i class="nav-icon <?= htmlspecialchars($menuItem['icon']) ?>"></i>
+                                <i class="nav-icon <?= ($menuItem['icon']) ?>"></i>
                                 <p>
-                                    <?= htmlspecialchars($menuItem['menuTitle']) ?>
+                                    <?= ($menuItem['menuTitle']) ?>
                                     <?= !empty($menuItem['pages']) ? '<i class="right fas fa-angle-left"></i>' : '' ?>
                                 </p>
                             </a>
@@ -145,10 +145,10 @@ if ($activePageInfo) {
                                 <ul class="nav nav-treeview">
                                     <?php foreach ($menuItem['pages'] as $page): ?>
                                         <li class="nav-item">
-                                            <a href="<?= htmlspecialchars($page['url']) ?>"
+                                            <a href="<?= ($page['url']) ?>"
                                                 class="nav-link <?= isset($activePage) && $page === $activePage ? 'active' : '' ?>">
                                                 <i class="far fa-circle nav-icon"></i>
-                                                <p><?= htmlspecialchars($page['title']) ?></p>
+                                                <p><?= ($page['title']) ?></p>
                                             </a>
                                         </li>
                                     <?php endforeach; ?>
