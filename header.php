@@ -134,6 +134,13 @@ foreach ($menuItems as $menuItem) {
                                         </a>
                                     </li>
                                 <?php endforeach; ?>
+
+                                <li class="nav-item" onclick="logout()">
+                                    <a href="javascript:void(0);" class="nav-link">
+                                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                                        <p>Logout</p>
+                                    </a>
+                                </li>
                             </ul>
                         <?php endif; ?>
                     </li>
