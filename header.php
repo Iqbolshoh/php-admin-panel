@@ -59,8 +59,10 @@ $activePage = $activePageInfo['activePage'] ?? null;
         </div>
     </form>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown"><a class="nav-link" href="./messages.php"><i class="far fa-comments"></i><span
-                    class="badge badge-danger navbar-badge"><?= $message_count ?></span></a></li>
+        <li class="nav-item dropdown"><a class="nav-link" href="#messages"><i class="far fa-comments"></i><span
+                    class="badge badge-danger navbar-badge">2</span></a></li>
+        <li class="nav-item dropdown"><a class="nav-link" href="#notifications"><i class="far fa-bell"></i><span
+                    class="badge badge-warning navbar-badge">5</span></a></li>
     </ul>
 </nav>
 
@@ -85,12 +87,12 @@ $activePage = $activePageInfo['activePage'] ?? null;
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="./" class="brand-link">
-        <img src="../assets/img/logo.png" alt="Admin Panel Logo" class="brand-image img-circle elevation-3">
+        <img src="./src/images/logo.png" alt="Admin Panel Logo" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">Admin Panel</span>
     </a>
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image"><img src="../assets/img/default.png" class="img-circle elevation-2" alt="User Image">
+            <div class="image"><img src="./src/images/default.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info"><a href="./" class="d-block">Iqbolshoh Ilhomjonov</a></div>
         </div>
