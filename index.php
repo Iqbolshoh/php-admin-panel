@@ -82,10 +82,9 @@
           </div>
 
         </div>
-
       </section>
-    </div>
 
+    </div>
     <?php include './footer.php'; ?>
   </div>
 
