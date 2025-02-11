@@ -42,6 +42,7 @@ $activePage = $activePageInfo['activePage'] ?? null;
 ?>
 
 <title><?= $pageTitle ?></title>
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
