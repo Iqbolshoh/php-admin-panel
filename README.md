@@ -45,18 +45,18 @@ The **`$menuItems`** array defines the **sidebar menu** 📜. Each item includes
 ```php
 $menuItems = [
     [
-        "menuTitle" => "🏠 Menu",
-        "icon" => "fas fa-home",
+        "menuTitle" => "Dashboard",
+        "icon" => "fas fa-tachometer-alt",
         "pages" => [
-            ["title" => "🏡 Home", "url" => "index.php"]
+            ["title" => "Home", "url" => "index.php"]
         ],
     ],
     [
-        "menuTitle" => "⚙️ Settings",
-        "icon" => "fas fa-cogs",
+        "menuTitle" => "Settings",
+        "icon" => "fas fa-cog",
         "pages" => [
-            ["title" => "👤 Profile", "url" => "profile.php"],
-        ]
+            ["title" => "Profile", "url" => "profile.php"]
+        ],
     ]
 ];
 ```
